@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Adeshewa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFE9F1; --ink:#3A1030; --pink:#E6296B; --gold:#FFB400; --teal:#119C8D; --card:#FFFFFF; --lilac:#C9A6F2;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#240A33; --ink:#FFE9F1; --pink:#FF5C93; --gold:#FFC83D; --teal:#3CD0BE; --card:#3A1650; --lilac:#8E5CC9;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#240A33; --ink:#FFE9F1; --pink:#FF5C93; --gold:#FFC83D; --teal:#3CD0BE; --card:#3A1650; --lilac:#8E5CC9;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif; font-size:18px; line-height:1.55;
+  min-height:100vh; overflow-x:hidden;
+}
+body::before{content:""; position:fixed; inset:0; z-index:-1; background:radial-gradient(circle at 10% 6%,rgba(255,180,0,.55),transparent 42%),radial-gradient(circle at 92% 18%,rgba(230,41,107,.5),transparent 46%),radial-gradient(circle at 14% 96%,rgba(17,156,141,.42),transparent 46%),radial-gradient(circle at 88% 92%,rgba(201,166,242,.7),transparent 46%)}
+main{position:relative; z-index:1; max-width:640px; margin:0 auto; padding:40px 22px 64px; text-align:center}
+.balloons{position:fixed; inset:0; overflow:hidden; pointer-events:none; z-index:0}
+.balloons span{position:absolute; bottom:-130px; left:var(--x); width:46px; height:58px; background:var(--c); border-radius:50% 50% 47% 47%; opacity:.6; animation:float var(--d) linear infinite; animation-delay:var(--w)}
+.balloons span::after{content:""; position:absolute; left:50%; top:100%; width:2px; height:48px; background:var(--ink); opacity:.35}
+@keyframes float{0%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(14px,-65vh) rotate(4deg)}100%{transform:translate(-8px,-125vh) rotate(-4deg)}}
+h1{
+  font-family:"Young Serif",Georgia,"Times New Roman",serif; font-weight:400;
+  margin:0; line-height:1; letter-spacing:-.01em;
+}
+.hb{display:block; font-size:clamp(22px,6vw,30px); color:var(--teal); margin-bottom:10px}
+.name{
+  display:block; font-size:clamp(46px,15vw,96px); line-height:1.02; color:var(--pink);
+  text-shadow:4px 4px 0 var(--gold);
+  animation:rise .9s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes rise{from{opacity:0; transform:translateY(24px) scale(.96)}to{opacity:1; transform:none}}
+.sub{margin:22px auto 0; max-width:30ch}
+.cake{width:min(78vw,300px); height:auto; margin:34px auto 0; display:block}
+.flame{transform-origin:center bottom; transform-box:fill-box; animation:flick .5s ease-in-out infinite alternate}
+.flame:nth-child(2n){animation-duration:.42s}
+@keyframes flick{from{transform:scaleY(1) rotate(-3deg)}to{transform:scaleY(1.2) rotate(3deg)}}
+.out .flame{opacity:0; transition:opacity .35s}
+.smoke{opacity:0}
+.out .smoke{animation:puff 1.6s ease-out forwards}
+@keyframes puff{0%{opacity:.7; transform:translateY(0)}100%{opacity:0; transform:translateY(-26px)}}
+button{
+  font:inherit; font-weight:600; color:#fff; background:var(--pink);
+  border:0; border-radius:999px; padding:15px 34px; margin-top:28px; cursor:pointer;
+  box-shadow:0 5px 0 rgba(0,0,0,.22); transition:transform .12s, box-shadow .12s;
+}
+button:active{transform:translateY(4px); box-shadow:0 1px 0 rgba(0,0,0,.22)}
+button:focus-visible{outline:3px solid var(--gold); outline-offset:4px}
+.note{
+  margin:40px auto 0; padding:28px 26px; background:var(--card); border-radius:22px;
+  border:3px solid var(--lilac); text-align:left; max-width:520px;
+  animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
+}
+.note[hidden]{display:none}
+.note p{margin:0 0 14px}
+.note p:last-child{margin:0; font-family:"Young Serif",Georgia,serif; font-size:24px; color:var(--pink)}
+#fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:5}
+@media (prefers-reduced-motion: reduce){
+  .name,.note{animation:none} .flame{animation:none} .out .smoke{animation:none} .balloons{display:none}
+}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="balloons" aria-hidden="true">
+  <span style="--x:6%;--c:var(--pink);--d:16s;--w:0s"></span>
+  <span style="--x:24%;--c:var(--gold);--d:20s;--w:-7s"></span>
+  <span style="--x:46%;--c:var(--teal);--d:18s;--w:-12s"></span>
+  <span style="--x:68%;--c:var(--lilac);--d:22s;--w:-4s"></span>
+  <span style="--x:88%;--c:var(--pink);--d:17s;--w:-10s"></span>
+</div>
+<main>
+  <h1><span class="hb">Happy birthday</span><span class="name">MEDIUM HUMAN</span></h1>
+  <p class="sub">Twenty-nine looks beautiful on you. I wrote something just for you.</p>
+
+  <svg class="cake" id="cake" viewBox="0 0 240 230" role="img" aria-label="Birthday cake with five lit candles">
+    <ellipse cx="120" cy="212" rx="112" ry="12" fill="var(--lilac)"/>
+    <rect x="22" y="146" width="196" height="62" rx="14" fill="var(--teal)"/>
+    <rect x="22" y="146" width="196" height="14" rx="7" fill="#fff" opacity=".35"/>
+    <rect x="52" y="96" width="136" height="56" rx="14" fill="var(--pink)"/>
+    <path d="M52 108q0-12 12-12h112q12 0 12 12v6q-10 12-18 0t-18 0-18 0-18 0-18 0-18 0-18 0q-8 10-18 0z" fill="#fff"/>
+    <circle cx="80" cy="176" r="6" fill="var(--gold)"/><circle cx="120" cy="184" r="6" fill="var(--gold)"/>
+    <circle cx="160" cy="176" r="6" fill="var(--gold)"/><circle cx="100" cy="128" r="5" fill="var(--gold)"/>
+    <circle cx="140" cy="128" r="5" fill="var(--gold)"/>
+    <g>
+      <rect x="66" y="66" width="8" height="32" rx="3" fill="var(--gold)"/>
+      <rect x="93" y="62" width="8" height="36" rx="3" fill="var(--lilac)"/>
+      <rect x="116" y="58" width="8" height="40" rx="3" fill="var(--gold)"/>
+      <rect x="139" y="62" width="8" height="36" rx="3" fill="var(--lilac)"/>
+      <rect x="166" y="66" width="8" height="32" rx="3" fill="var(--gold)"/>
+    </g>
+    <g>
+      <path class="flame" d="M70 40c8 8 8 16 0 22-8-6-8-14 0-22z" fill="#FF9A1F"/>
+      <path class="flame" d="M97 36c8 8 8 16 0 22-8-6-8-14 0-22z" fill="#FF9A1F"/>
+      <path class="flame" d="M120 32c8 8 8 16 0 22-8-6-8-14 0-22z" fill="#FF9A1F"/>
+      <path class="flame" d="M143 36c8 8 8 16 0 22-8-6-8-14 0-22z" fill="#FF9A1F"/>
+      <path class="flame" d="M170 40c8 8 8 16 0 22-8-6-8-14 0-22z" fill="#FF9A1F"/>
+    </g>
+    <g class="smoke" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round">
+      <path d="M70 56q-4-8 0-14"/><path d="M97 52q-4-8 0-14"/><path d="M120 48q-4-8 0-14"/><path d="M143 52q-4-8 0-14"/><path d="M170 56q-4-8 0-14"/>
+    </g>
+  </svg>
+
+  <button id="wish" type="button">Read more</button>
+
+  <section class="note" id="note" hidden aria-live="polite">
+    <p>Happy Birthday 🎊 my Medium Human ♥️🥹 May the universe grant all your heart’s desires and fill you with so much happiness and wealth.</p>
+    <p>I’m using this medium to let you know having you in my life is a blessing I never take for granted and I’m grateful for every moment I get to share with you. I pray this new chapter brings you endless joy and beautiful memories.</p>
+    
+    <p>Out of all reasons to smile I’ll make sure to always be one of em ❤️…. HAPPY BIRTHDAY 🎉 my love 🥰</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var btn=document.getElementById('wish'), cake=document.getElementById('cake'), note=document.getElementById('note');
+  var cv=document.getElementById('fx'), ctx=cv.getContext('2d'), parts=[], raf=0;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var colors=['#E6296B','#FFB400','#119C8D','#C9A6F2','#FF9A1F','#FFFFFF'];
+
+  function size(){var d=window.devicePixelRatio||1; cv.width=innerWidth*d; cv.height=innerHeight*d; ctx.setTransform(d,0,0,d,0,0)}
+  addEventListener('resize',size); size();
+
+  function burst(){
+    var w=innerWidth;
+    for(var i=0;i<150;i++){
+      parts.push({x:w/2+(Math.random()-.5)*w*.3, y:innerHeight*.55,
+        vx:(Math.random()-.5)*14, vy:-Math.random()*16-4,
+        s:Math.random()*8+5, r:Math.random()*6, vr:(Math.random()-.5)*.4,
+        c:colors[(Math.random()*colors.length)|0], life:0});
+    }
+    if(!raf) raf=requestAnimationFrame(tick);
+  }
+  function tick(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    parts=parts.filter(function(p){return p.y<innerHeight+30 && p.life<260});
+    parts.forEach(function(p){
+      p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr; p.life++;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.fillStyle=p.c;
+      ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); ctx.restore();
+    });
+    raf=parts.length?requestAnimationFrame(tick):0;
+    if(!raf) ctx.clearRect(0,0,innerWidth,innerHeight);
+  }
+
+  btn.addEventListener('click',function(){
+    
+    note.hidden=false;
+    if(!still) burst();
+    btn.textContent='Celebrate again';
+    if(!btn.dataset.done){btn.dataset.done='1'; setTimeout(function(){note.scrollIntoView({behavior:still?'auto':'smooth',block:'center'})},500)}
+  });
+})();
+</script>
+</body>
+</html>
